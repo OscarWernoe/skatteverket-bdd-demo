@@ -15,20 +15,21 @@ public class AccountController {
     }
 
     @GetMapping("/checkBalance")
-    public Double checkBalance(String name, String pin) {
-        accountService.authenticate(name, pin);
-        return accountService.checkBalance(name, pin);
+    public double checkBalance(String name, String pin) {
+        return accountService.getBalance(name, pin);
     }
 
-    public void withdraw() {
-        // todo implement
+    @PostMapping("/withdraw")
+    public double withdraw(@RequestParam String name, @RequestParam String pin, @RequestParam double amount) {
+        return accountService.removeFromBalance(name, pin, amount);
     }
 
-    public void deposit() {
-        // todo implement
+    @PostMapping("/deposit")
+    public double deposit(@RequestParam String name, @RequestParam String pin, @RequestParam double amount) {
+        return accountService.addToBalance(name, pin, amount);
     }
 
-    @Deprecated
+    // only purpose for this method is to perform the explicit authentication.feature tests
     @PostMapping("/authenticate")
     public String authenticate(@RequestParam String name, @RequestParam String pin) {
         accountService.authenticate(name, pin);

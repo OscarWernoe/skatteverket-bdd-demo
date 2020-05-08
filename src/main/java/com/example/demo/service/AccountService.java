@@ -13,24 +13,31 @@ public class AccountService {
         this.accountRepository = accountRepository;
     }
 
-    public boolean authenticate(String name, String pin) {
-        if (nameAndPinMatch(name, pin)) {
-           return true;
-        } else {
+    public void authenticate(String name, String pin) {
+        if (!accountRepository.existsByNameAndPin(name, pin)) {
             throw new AuthenticationFailedException();
         }
     }
 
-    public double checkBalance(String name, String pin) {
-        if (authenticate(name, pin)) {
-            Account account = accountRepository.findByNameAndPin(name, pin);
-            return account.getBalance();
-        } else {
-            throw new AuthenticationFailedException();
-        }
+    public double getBalance(String name, String pin) {
+        authenticate(name, pin);
+        Account account = accountRepository.findByNameAndPin(name, pin);
+        return account.getBalance();
     }
 
-    private boolean nameAndPinMatch(String name, String pin) {
-        return accountRepository.existsByNameAndPin(name, pin);
+    public double removeFromBalance(String name, String pin, double amount) {
+        return updateAccountBalance(name, pin, -amount);
+    }
+
+    public double addToBalance(String name, String pin, double amount) {
+        return updateAccountBalance(name, pin, amount);
+    }
+
+    private double updateAccountBalance(String name, String pin, double amount) {
+        authenticate(name, pin);
+        Account account = accountRepository.findByNameAndPin(name, pin);
+        account.addToBalance(amount);
+        accountRepository.save(account);
+        return account.getBalance();
     }
 }
