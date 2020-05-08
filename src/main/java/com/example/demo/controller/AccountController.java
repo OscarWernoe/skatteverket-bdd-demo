@@ -16,15 +16,23 @@ public class AccountController {
 
     @GetMapping("/checkBalance")
     public Double checkBalance(String name, String pin) {
-        return accountService.checkBalance();
+        accountService.authenticate(name, pin);
+        return accountService.checkBalance(name, pin);
     }
 
+    public void withdraw() {
+        // todo implement
+    }
+
+    public void deposit() {
+        // todo implement
+    }
+
+    @Deprecated
     @PostMapping("/authenticate")
     public String authenticate(@RequestParam String name, @RequestParam String pin) {
-        if (accountService.authenticate(name, pin)) {
-            return "Welcome";
-        } else {
-            return "Not welcome";
-        }
+        accountService.authenticate(name, pin);
+        return "Welcome";
     }
+
 }
