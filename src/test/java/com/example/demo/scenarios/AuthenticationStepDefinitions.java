@@ -19,7 +19,9 @@ public class AuthenticationStepDefinitions {
 
     @When("holder enters name {string} and pin {string}")
     public void holderEntersNameAndPin(String name, String pin) throws Exception {
-        resultActions = mockMvc.perform(post("/authenticate").param("name", name).param("pin", pin));
+        resultActions = mockMvc.perform(post("/authenticate")
+                .param("name", name)
+                .param("pin", pin));
     }
 
     @Then("holder sees message {string}")

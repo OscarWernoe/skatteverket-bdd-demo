@@ -27,6 +27,7 @@ public class AccountStepDefinitions {
 
     private ResultActions resultActions;
 
+    // Before hooks run before the first step of each scenario.
     @Before
     public void resetBalance() {
         ArrayList<Account> accounts = (ArrayList<Account>) accountRepository.findAll();
@@ -34,13 +35,6 @@ public class AccountStepDefinitions {
             a.setBalance(0);
             accountRepository.save(a);
         }
-    }
-
-    @Given("successful authentication")
-    public void successfulAuthentication() throws Exception {
-        mockMvc.perform(post("/authenticate")
-                .param("name", "Bob")
-                .param("pin", "1111"));
     }
 
     @Given("the account balance is ${double}")
@@ -77,5 +71,11 @@ public class AccountStepDefinitions {
                 .param("name", name)
                 .param("pin", "1111")
                 .param("amount", Double.toString(amount)));
+    }
+
+    @Then("it should show {string}")
+    public void itShouldShow(String message) throws Exception {
+        resultActions.andExpect(content().string(message));
+
     }
 }

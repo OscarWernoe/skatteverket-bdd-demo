@@ -1,7 +1,8 @@
 Feature: Deposit cash
 
-  Background:
-    Given successful authentication
+  Background: successful authentication
+    When holder enters name "Bob" and pin "1111"
+    Then holder sees message "Welcome"
 
   Scenario: Account holder deposit cash
     Given the account balance is $0

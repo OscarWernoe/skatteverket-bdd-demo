@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.domain.Account;
 import com.example.demo.domain.AuthenticationFailedException;
+import com.example.demo.domain.InsufficientFundsException;
 import com.example.demo.repository.AccountRepository;
 import org.springframework.stereotype.Service;
 
@@ -26,14 +27,17 @@ public class AccountService {
     }
 
     public double removeFromBalance(String name, String pin, double amount) {
-        return updateAccountBalance(name, pin, -amount);
+        authenticate(name, pin);
+        Account account = accountRepository.findByNameAndPin(name, pin);
+        if (account.getBalance() - amount < 0) {
+            throw new InsufficientFundsException();
+        }
+        account.addToBalance(-amount);
+        accountRepository.save(account);
+        return account.getBalance();
     }
 
     public double addToBalance(String name, String pin, double amount) {
-        return updateAccountBalance(name, pin, amount);
-    }
-
-    private double updateAccountBalance(String name, String pin, double amount) {
         authenticate(name, pin);
         Account account = accountRepository.findByNameAndPin(name, pin);
         account.addToBalance(amount);
