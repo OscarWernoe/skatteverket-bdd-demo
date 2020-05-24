@@ -23,4 +23,4 @@ Feature: Withdraw cash
     Examples:
       | initialAmount | name  | withdrawAmount | message              |
       | 100           | "Bob" | 200            | "Insufficient Funds" |
-      | 100           | "Bob" | 100.5            | "Insufficient Funds" |
+      | 100           | "Bob" | 100.5          | "Insufficient Funds" |

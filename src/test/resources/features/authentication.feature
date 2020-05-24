@@ -1,5 +1,5 @@
 Feature: Authentication
-  Authenticate an account holder with name and pin
+  Authenticate an account holder with name and pin.
 
   Scenario: Holder submits name and pin successfully
     When holder enters name "Bob" and pin "1111"
