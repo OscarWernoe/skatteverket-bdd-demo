@@ -65,6 +65,7 @@ public class IUStepDefinitions {
 
     @Then("the IU is logged with personnr, orgnr, failed controls, today's date")
     public void theIUIsLoggedWithPersonnrOrgnrFailedControlsTodaySDate() {
+
     }
 
     @Given("IU information is valid")

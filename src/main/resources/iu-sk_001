@@ -1,0 +1,13 @@
+{
+  "idGruppIu": 1,
+  "redovisningsperiod": "201901",
+  "uppgiftslamnare": "YYYYYYYYYYYY",
+  "inkomsttagare": "XXXXXXXXXXXX",
+  "specifikationsnummer": 9999999999,
+  "aktuellFomIu": "2019-03-05T15:40:04.123456",
+  "kontrollstatusIu": "FARDIGBEARBETAD",
+  "ankomsttidIu": "2019-03-05T15:40:04.123456",
+  "attribut": {
+    "avdrPrelSkattIu": 1000
+  }
+}

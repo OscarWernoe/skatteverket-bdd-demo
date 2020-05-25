@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.IU;
+import com.example.demo.domain.SK001IU;
 import com.example.demo.domain.Status;
 import com.example.demo.repository.IURepository;
 import org.springframework.stereotype.Service;
@@ -26,8 +27,17 @@ public class IUService {
         iuRepository.save(iu);
     }
 
-    private void loggFailedIU(IU iu) {
+    private void formaliekontroll(SK001IU iu) {
+        // formatkontroll
+        // sambandskontroll
+        // spara eller logga
+    }
 
+    private void spara() {
+    }
+
+    private String logga() {
+        return null;
     }
 
 }
