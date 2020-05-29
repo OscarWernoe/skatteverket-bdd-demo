@@ -30,4 +30,8 @@ public class SK001StepDefinitions {
     @Och("IU loggas med relevant information")
     public void iuLoggasMedRelevantInformation() {
     }
+
+    @När("IU valideras")
+    public void iuValideras() {
+    }
 }

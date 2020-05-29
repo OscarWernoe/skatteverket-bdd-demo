@@ -7,6 +7,7 @@ import io.cucumber.core.gherkin.vintage.internal.gherkin.deps.com.google.gson.Gs
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.sv.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -76,5 +77,43 @@ public class IUStepDefinitions {
     @Given("IU information is invalid")
     public void iuInformationIsInvalid() {
         // make IU with invalid data
+    }
+
+    @Och("<skattefält> förekommer")
+    public void skattefältFörekommer() {
+    }
+
+    @Så("lyckas valideringen")
+    public void lyckasValideringen() {
+    }
+
+    @Så("mysslyckas valideringen stoppande")
+    public void mysslyckasValideringenStoppande() {
+    }
+
+    @Givet("en komplett IU läses in")
+    public void enKomplettIULäsesIn() {
+    }
+
+    @När("<fält> av <fälttyp> i <domän> med <data> kontrolleras")
+    public void fältAvFälttypIDomänMedDataKontrolleras() {
+    }
+
+    @Så("lyckas formatkontrollen")
+    public void lyckasFormatkontrollen() {
+    }
+
+    @Och("{string} förekommer")
+    public void skattefältFörekommer(String s) {
+
+    }
+
+    @Och("<skattefalt> förekommer")
+    public void skattefaltFörekommer() {
+    }
+
+    @Men("{string} forekommer")
+    public void skattefaltForekommer(String s) {
+
     }
 }
