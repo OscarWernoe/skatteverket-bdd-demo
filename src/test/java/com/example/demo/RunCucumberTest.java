@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         plugin = {"pretty", "html:target/Destination"},
-        tags = {"@formatkontroll"}
-//        tags = {"@beteende,@formatkontroll,@sambandskontroll"}
+        tags = {"@SK001"}
+//       tags = {"@beteende,@formatkontroll,@sambandskontroll"}
 )
 public class RunCucumberTest {
 }

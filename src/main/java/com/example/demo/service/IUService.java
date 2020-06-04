@@ -33,11 +33,14 @@ public class IUService {
         // spara eller logga
     }
 
-    private void spara() {
-    }
-
     private String logga() {
         return null;
     }
 
+    public void lasInIu(SK001IU iu) {
+        IU mockIu = new IU();
+        mockIu.setId(1L);
+        mockIu.setStatus(Status.INKOMMEN);
+        iuRepository.save(mockIu);
+    }
 }

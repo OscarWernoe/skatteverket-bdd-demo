@@ -23,6 +23,6 @@ public class IUController {
 
     @PostMapping("/SK001")
     public void processIU(@RequestBody SK001IU iu) {
-
+        iuService.lasInIu(iu);
     }
 }

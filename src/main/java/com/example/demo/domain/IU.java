@@ -11,14 +11,8 @@ public class IU {
     }
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-
-    Long specifikationsnummer;
-    String uppgiftslamnare;
-    String inkomsttagare;
-    String leveranspersonummer;
-    String redovisningsperiod;
+    Status status;
 
     public Status getStatus() {
         return status;
@@ -27,8 +21,6 @@ public class IU {
     public void setStatus(Status status) {
         this.status = status;
     }
-
-    Status status;
 
     public void setId(Long id) {
         this.id = id;
