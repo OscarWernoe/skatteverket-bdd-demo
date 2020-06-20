@@ -8,6 +8,7 @@ import com.example.demo.repository.IURepository;
 import com.example.demo.service.IUService;
 import io.cucumber.core.gherkin.vintage.internal.gherkin.deps.com.google.gson.Gson;
 import io.cucumber.java.Before;
+import io.cucumber.java.ParameterType;
 import io.cucumber.java.sv.Givet;
 import io.cucumber.java.sv.När;
 import io.cucumber.java.sv.Så;
@@ -112,5 +113,17 @@ public class SK001StepDefinitions {
         assertNotNull(resultat.get("idnr"));
         assertNotNull(resultat.get("kontroller"));
         assertNotNull(resultat.get("datum"));
+    }
+
+    @ParameterType("IuLine|IuPhrase")
+    public SK001IU IUObj(String id) {
+        SK001IU s = new SK001IU();
+        s.setAktuellFomIu(id);
+        return s;
+    }
+
+    @Givet("en {IUObj} med gilltig information")
+    public void enIUObj(SK001IU s) {
+        System.out.println(s.getAktuellFomIu());
     }
 }

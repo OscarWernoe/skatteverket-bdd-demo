@@ -34,4 +34,5 @@ public class GetVersionStepDefinitions {
         resultActions.andExpect(content().string(version));
     }
 
+
 }

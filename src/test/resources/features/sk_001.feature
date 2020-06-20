@@ -1,5 +1,6 @@
 # language: sv
 @SK001
+#noinspection CucumberUndefinedStep
 Egenskap: SK_001
 
   Inläsning
@@ -62,6 +63,12 @@ Egenskap: SK_001
     * sambandskontroll
     Och IU loggas med orgnr, misslyckade kontroller, dagens datum
 
+  @POJO
+  Scenario: Lyckad inläsning av IU POJO
+    Givet en IuPhrase med gilltig information
+    När IU läses in
+    Så sparas IU som inkommen
+
   @sambandskontroll
   Abstrakt Scenario: Värde förekommer endast i ett av skattefälten
     Givet en IU med gilltig information
@@ -73,12 +80,6 @@ Egenskap: SK_001
     Exempel:
       | skattefält         | skattefältLista                                                            |
       | "AvdrPrelSkatt_iu" | AvdrSkattSINK_iu, AvdrSkattASINK_iu, EjskatteavdragEjbeskattningSv_iu, ... |
-#      | AvdrSkattSINK_iu                 |
-#      | AvdrSkattASINK_iu                |
-#      | EjskatteavdragEjbeskattningSv_iu |
-#      | SkattebefrEnlAvtal_iu            |
-#      | Lokalanstalld_iu                 |
-#      | AmbassadanstISvMAvtal_iu         |
 
   @sambandskontroll
   Scenario: Värde förekommer i flera av skattefälten
@@ -113,7 +114,7 @@ Egenskap: SK_001
     Så godkänns inte kontrollen
 
   @obligatoriskafält
-  Scenario: Obligatoriska fält
+  Scenario: Obligatoriska fält finns
     Givet en IU med gilltig information
     När kontroll av obligatoriska fält görs
     Och fält "idGruppIu", "redovisningsperiod" ... finns
