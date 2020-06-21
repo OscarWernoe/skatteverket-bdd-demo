@@ -22,6 +22,7 @@ Egenskap:
   ...
   ...
 
+
   Scenario: Demo
     Givet att alla obligatoriska fält är i fyllda
     Och att avdragen preliminär skatt är angiven
